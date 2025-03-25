@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
@@ -14,14 +14,17 @@ def calculate_bmi(height, weight):
         status = "肥胖"
     return bmi, status
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/bmi', methods=['POST'])
 def bmi_api():
     data = request.get_json()
     height = data.get("height")
     weight = data.get("weight")
 
-    if height is None or weight is None:
-        return jsonify({"error": "請提供身高與體重"}), 400
+    
 
     bmi, status = calculate_bmi(height, weight)
     return jsonify({

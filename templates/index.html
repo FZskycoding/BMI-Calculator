@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI 計算機</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>BMI 計算機</h1>
+    <input type="number" id="height" placeholder="身高 (cm)"><br>
+    <input type="number" id="weight" placeholder="體重 (kg)"><br>
+    <button onclick="calculateBMI()">計算 BMI</button>
+
+    <div id="result"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
