@@ -24,7 +24,8 @@ def bmi_api():
     height = data.get("height")
     weight = data.get("weight")
 
-    
+    if height is None or weight is None:
+        return jsonify({"error": "請提供身高與體重"}), 400
 
     bmi, status = calculate_bmi(height, weight)
     return jsonify({
